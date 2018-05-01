@@ -1,0 +1,26 @@
+{
+  "name": "jackfront",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Azanov A.A.",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^16.3.13",
+    "@types/react-dom": "^16.0.5",
+    "awesome-typescript-loader": "^5.0.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.8.3",
+    "webpack-cli": "^2.1.2"
+  },
+  "dependencies": {
+    "csstype": "^2.4.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "webpack": "^4.6.0"
+  }
+}
