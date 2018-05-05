@@ -6,6 +6,10 @@ module.exports = {
         filename: "bundle.js",
         path: __dirname + "/dist"
     },
+    watch: true,
+    watchOptions: {
+        ignored: /node_modules/
+    },
 
     mode: "development",
 
@@ -33,9 +37,10 @@ module.exports = {
     // This is important because it allows us to avoid bundling all of our
     // dependencies, which allows browsers to cache those libraries between builds.
     externals: {
-        "socket.io-client": "io"
-        // "react": "React",
-        // "react-dom": "ReactDOM"
+        "socket.io-client": "io",
+        "react": "React",
+        "react-dom": "ReactDOM",
+        "react-router-dom": "ReactRouterDOM"
     },
     plugins: [
         new WebpackCopy([
