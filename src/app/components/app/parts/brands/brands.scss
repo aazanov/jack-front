@@ -1,0 +1,14 @@
+@import 'mixins';
+
+.brands {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @include response-below(sm){
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include response-below(xxxs){
+    grid-template-columns: 1fr;
+  }
+}

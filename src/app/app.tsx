@@ -2,9 +2,8 @@ import * as React               from "react";
 import { Switch }               from "react-router-dom";
 import { Route }                from "react-router-dom";
 
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/scss/bootstrap.scss';
 
-import {Button}             from "./components/buttons/base/button";
 import {Header}             from "./components/app/header/header";
 import {Navigation}         from "./components/app/navigation/navigation";
 import {Brands}             from "./components/app/parts/brands/brands";

@@ -1,4 +1,5 @@
-const WebpackCopy       = require('copy-webpack-plugin');
+const WebpackCopy           = require('copy-webpack-plugin');
+const ExtractTextWebpack    = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: "./src/index.ts",
@@ -6,9 +7,8 @@ module.exports = {
         filename: "bundle.js",
         path: __dirname + "/dist"
     },
-    watch: true,
-    watchOptions: {
-        ignored: /node_modules/
+    devServer: {
+        contentBase: __dirname + "/dist"
     },
 
     mode: "development",
@@ -26,6 +26,20 @@ module.exports = {
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
             { test: /\.css$/, loader: 'style-loader!css-loader' },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "sass-loader", options: {
+                        includePaths: [
+                           __dirname + "/src/helpers/scss"
+                        ]
+                    } // compiles Sass to CSS
+                }]
+            },
 
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
