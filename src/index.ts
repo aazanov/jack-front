@@ -6,5 +6,3 @@ import {Transport}          from "./app/infrastructure/transport/transport";
 
 
 render(React.createElement(HashRouter, null, React.createElement(App)), document.getElementById('app'));
-
-new Transport().connect();

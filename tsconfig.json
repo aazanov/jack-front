@@ -4,7 +4,8 @@
     "jsx": "react",
     "target": "es2015",
     "inlineSources": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules"

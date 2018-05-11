@@ -7,11 +7,11 @@ import 'bootstrap/scss/bootstrap.scss';
 import {Header}             from "./components/app/header/header";
 import {Navigation}         from "./components/app/navigation/navigation";
 import {Brands}             from "./components/app/parts/brands/brands";
+import {Account}            from "./components/app/parts/account/account";
 
 
 export class App extends React.Component {
     private title = "hello";
-    public action = () => {console.log(this.title)};
 
     public render(){
         return (
@@ -21,6 +21,7 @@ export class App extends React.Component {
                     <Navigation/>
                     <Switch>
                         <Route path="/brands" component={Brands}/>
+                        <Route path="/account" component={Account}/>
                     </Switch>
                 </div>
             </div>

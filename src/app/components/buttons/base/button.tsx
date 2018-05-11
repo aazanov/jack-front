@@ -1,21 +1,44 @@
 import * as React           from 'react';
+import {EventEmitter}       from "events";
+
 import "./button.css";
 
-export class Button extends React.PureComponent<any, any>{
+export interface ButtonProps {
+    title       : string,
+    onClick     : Function
+}
 
-    public state = {
+export class Button extends React.PureComponent<ButtonProps>{
+
+    constructor(
+        props       : any,
+        context?    : any
+    ){
+        super(props, context);
+        if (props.onClick) this.onClick(props.onClick);
+    }
+
+    // --- SECTION [MEMBERS] ------------------------------------------------------------------------------------------
+
+    protected eventEmitter      = new EventEmitter();
+    public state                = {
         disabled: false
     };
 
-    constructor(
-        props: any,
-        context: any
-    ){
-        super(props, context);
+    // --- SECTION [METHODS] ------------------------------------------------------------------------------------------
+
+    protected click(){
+        this.eventEmitter.emit('click', this.state);
     }
 
-    private click(params: any){
-        return this.props.action && this.props.action(params) || null;
+    public onClick(action: Function){
+        this.eventEmitter.on('click', action.bind(this));
+    }
+
+    // --- SECTION [REACT FUNCTIONS] ----------------------------------------------------------------------------------
+
+    public componentWillUnmount(){
+        this.eventEmitter.removeAllListeners();
     }
 
     public render(){
